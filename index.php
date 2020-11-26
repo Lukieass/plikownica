@@ -9,7 +9,7 @@ $status_uploaded = 0;
 //lokalizacja gdzie przechowywac pliki
 $fpa = "pliki";
 //maksymalny rozmiar pliku
-ini_set('upload_max_filesize', '900000000000');
+ini_set('upload_max_filesize', '800000000000');
 
 //---------OBSLUGA WGRYWANIA PLIKU-----------
 //jesli wyslano plik
