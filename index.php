@@ -71,6 +71,9 @@ if ($status_uploaded == 1) {
 
 <?php
 //TODO: zrobic wyswietlanie zawartosci folderu "pliki/"
+	$katalog    = 'ftp://mkwk019.cba.pl/plikownica.cba.pl/pliki/';
+$pliki = scandir($katalog);
+foreach($pliki as $plik) echo '<p>'.$plik.'</p>';
 ?>
 
 </html>
