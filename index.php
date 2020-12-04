@@ -11,6 +11,14 @@ $fpa = "pliki";
 //maksymalny rozmiar pliku
 ini_set('upload_max_filesize', '800000000000');
 
+//---------OBSLUGA USUWANIA PLIKU------------
+
+if (isset($_POST['del_button'])){
+	unlink($fpa .'/'. $_POST['fdel']);
+        echo "wykasowano";
+}
+
+
 //---------OBSLUGA WGRYWANIA PLIKU-----------
 //jesli wyslano plik
 if(is_uploaded_file($_FILES['f']['tmp_name'])){
@@ -44,7 +52,7 @@ if(is_uploaded_file($_FILES['f']['tmp_name'])){
 
 
 
-<h1>Plikownica</h1>
+<h1>Plikownica Bargiel</h1>
 
 <?php
 //jesli zakazany typ pliku
@@ -70,10 +78,17 @@ if ($status_uploaded == 1) {
 </form>
 
 <?php
-//TODO: zrobic wyswietlanie zawartosci folderu "pliki/"
-	$katalog    = 'ftp://mkwk019.cba.pl/plikownica.cba.pl/pliki/';
-$pliki = scandir($katalog);
-foreach($pliki as $plik) echo '<p>'.$plik.'</p>';
+$pliki = scandir($fpa);
+foreach($pliki as $plik){
+ echo '<p>
+       <a href="'.$fpa."/".$plik.'" >'.$plik.'</a>
+       <form method="post">
+	<input type="hidden" name="fdel" value="'.$plik.'"/> 
+	<input type="submit" value="usun" name="del_button"/>
+       </form>
+       </p>'; 
+}
+
 ?>
 
 </html>
