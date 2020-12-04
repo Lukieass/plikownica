@@ -52,7 +52,7 @@ if(is_uploaded_file($_FILES['f']['tmp_name'])){
 
 
 
-<h1>Plikownica Bargiel</h1>
+<h1>Plikownica </h1>
 
 <?php
 //jesli zakazany typ pliku
